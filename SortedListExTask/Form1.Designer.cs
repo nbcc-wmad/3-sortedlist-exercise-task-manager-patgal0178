@@ -80,6 +80,7 @@
             this.btnPrintAll.TabIndex = 13;
             this.btnPrintAll.Text = "Print All Tasks";
             this.btnPrintAll.UseVisualStyleBackColor = true;
+            this.btnPrintAll.Click += new System.EventHandler(this.btnPrintAll_Click);
             // 
             // lblTaskDetails
             // 

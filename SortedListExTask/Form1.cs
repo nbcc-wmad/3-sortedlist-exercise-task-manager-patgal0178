@@ -89,5 +89,16 @@ namespace SortedListExTask
                 MessageBox.Show(ex.Message, "invalid data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnPrintAll_Click(object sender, EventArgs e)
+        {
+            string message=string.Empty;
+            foreach (KeyValuePair<string, string> kvp in Task)
+            {
+                message += $"{kvp.Key}, {kvp.Value}\n";
+            }
+
+            MessageBox.Show(message);
+        }
     }
 }
