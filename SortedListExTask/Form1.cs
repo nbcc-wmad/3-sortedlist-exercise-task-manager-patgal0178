@@ -37,11 +37,47 @@ namespace SortedListExTask
 
                 lstTasks.Items.Add(dateString);
 
-
+                txtTask.Text = string.Empty;
+                dtpTaskDate.Value = DateTime.Today;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"invalid data",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void lstTasks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string date = lstTasks.SelectedItem.ToString();
+
+            lblTaskDetails.Text = Task[date];
+        }
+
+        private void btnRemoveTask_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lstTasks.SelectedIndex == -1)
+                {
+                    throw new Exception("please select a task to remove");
+                }
+
+                string date = lstTasks.SelectedItem.ToString();
+
+                Task.Remove(date);
+
+                lstTasks.Items.Clear();
+
+                lblTaskDetails.Text = string.Empty;
+
+                foreach(KeyValuePair<string, string> kvp in Task)
+                {
+                    lstTasks.Items.Add(kvp.Key);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "invalid data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -58,6 +58,7 @@
             this.btnRemoveTask.TabIndex = 15;
             this.btnRemoveTask.Text = "Remove Task";
             this.btnRemoveTask.UseVisualStyleBackColor = true;
+            this.btnRemoveTask.Click += new System.EventHandler(this.btnRemoveTask_Click);
             // 
             // lstTasks
             // 
@@ -68,6 +69,7 @@
             this.lstTasks.Name = "lstTasks";
             this.lstTasks.Size = new System.Drawing.Size(249, 116);
             this.lstTasks.TabIndex = 14;
+            this.lstTasks.SelectedIndexChanged += new System.EventHandler(this.lstTasks_SelectedIndexChanged);
             // 
             // btnPrintAll
             // 
