@@ -18,6 +18,22 @@ namespace SortedListExTask
         }
         private SortedList<string, string> Task = new SortedList<string, string>();
 
+        private void resetTheForm()
+        {
+            txtTask.Text = string.Empty;
+
+            dtpTaskDate.Value = DateTime.Today;
+
+            lstTasks.Items.Clear();
+
+            lblTaskDetails.Text = string.Empty;
+
+            foreach (KeyValuePair<string, string> kvp in Task)
+            {
+                lstTasks.Items.Add(kvp.Key);
+            }
+        }
+
         private void btnAddTask_Click(object sender, EventArgs e)
         {
             try
@@ -37,8 +53,7 @@ namespace SortedListExTask
 
                 lstTasks.Items.Add(dateString);
 
-                txtTask.Text = string.Empty;
-                dtpTaskDate.Value = DateTime.Today;
+                resetTheForm();
             }
             catch (Exception ex)
             {
@@ -66,14 +81,8 @@ namespace SortedListExTask
 
                 Task.Remove(date);
 
-                lstTasks.Items.Clear();
+                resetTheForm();
 
-                lblTaskDetails.Text = string.Empty;
-
-                foreach(KeyValuePair<string, string> kvp in Task)
-                {
-                    lstTasks.Items.Add(kvp.Key);
-                }
             }
             catch(Exception ex)
             {
