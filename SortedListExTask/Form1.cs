@@ -92,13 +92,20 @@ namespace SortedListExTask
 
         private void btnPrintAll_Click(object sender, EventArgs e)
         {
-            string message=string.Empty;
-            foreach (KeyValuePair<string, string> kvp in Task)
+            if (Task.Count != 0)
             {
-                message += $"{kvp.Key}, {kvp.Value}\n";
-            }
+                string message = string.Empty;
+                foreach (KeyValuePair<string, string> kvp in Task)
+                {
+                    message += $"{kvp.Key}, {kvp.Value}\n";
+                }
 
-            MessageBox.Show(message);
+                MessageBox.Show(message);
+            }
+            else
+            {
+                MessageBox.Show("no tasks were entered");
+            }
         }
     }
 }
